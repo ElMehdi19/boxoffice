@@ -11,3 +11,144 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  color: crimson;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.navbar {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: crimson;
+  color: #fff;
+  padding: 4px;
+}
+
+.navbar h2 {
+  display: inline-block;
+  border: 6px solid #fff;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.search-form {
+  max-width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-form input, button {
+  padding: 15px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.search-form input {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  width: 40%;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.search-form button {
+  background-color: #fff;
+  color: crimson;
+  border-radius: 20px;
+  border: 1px solid crimson;
+}
+
+.search-form button:hover {
+  cursor: pointer;
+  background-color: crimson;
+  color: #fff;
+}
+
+.movies {
+  max-width: 980px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(300px, auto);
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie-title {
+  color: crimson;
+}
+
+.movie-art {
+  width: 200px;
+  height: 300px;
+}
+
+.movie-date {
+  font-weight: normal;
+}
+
+.span-handle {
+  display: none;
+}
+
+.fetch-error {
+  text-align: center;
+  padding: 10px;
+  margin: 40px;
+}
+
+.fetch-error span {
+  border: 3px solid crimson;
+  color: crimson;
+  padding: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    grid-gap: 30px;
+  }
+  .movie {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 30px;
+    grid-template-areas:
+    "img title"
+    "img director"
+    "img rating"
+    "date ."
+    ;
+  }
+  .movie:hover {
+    border-left: 8px solid crimson;
+  }
+  .span-handle {
+    display: inline;
+    color: crimson;
+  }
+  .movie img {
+    grid-area: img;
+  }
+  .movie .movie-title {
+    grid-area: title;
+    color: #000;
+  }
+  .movie .movie-date {
+    grid-area: date;
+  }
+  .movie .movie-director {
+    grid-area: director;
+  }
+  .movie .movie-rating {
+    grid-area: rating;
+  }
+}
