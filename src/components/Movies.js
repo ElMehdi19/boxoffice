@@ -3,7 +3,7 @@ import { MoviesContext } from '../contexts/moviesContext';
 import MovieTemplate from './MovieTemplate';
 
 const Movies = () => {
-    const { error, movies } = useContext(MoviesContext);
+    const { error, errorVal, movies } = useContext(MoviesContext);
     const movieList = !error && movies.length ?
         movies.map(movie => {
             const { Title: title, Poster: art, Type: type, Year: year, imdbID: imdb } = movie;
@@ -13,17 +13,20 @@ const Movies = () => {
         })
         :
         (
-            <div className="fetch-error">
-                <span>
-                { 
-                    error ? 'SOME ERROR OCCURED.' : 'NO MATCHING MOVIES FOUND.' 
-                }
-                </span>
+            <div>
+                <span>{errorVal ? errorVal : ''}</span>
             </div>
         )
-    return (
+        
+    return !error || !errorVal.length ? (
         <div className="movies">
-            { movieList.length ? movieList : '' }
+            { movieList }
+        </div>
+    )
+    :
+    (
+        <div className="fetch-error">
+            { movieList }
         </div>
     )
 }

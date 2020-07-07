@@ -101,13 +101,14 @@ a:hover{
 .fetch-error {
   text-align: center;
   padding: 10px;
-  margin: 40px;
+  margin: 40px auto;
 }
 
 .fetch-error span {
-  border: 3px solid crimson;
+  border: 3px solid rgb(243, 7, 54);
   color: crimson;
   padding: 20px;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 750px) {
